@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ahorcadoAngular';
+  arrCoincidencias = []; // esto es para corregir!
+  palabraAdivinar = 'hola';
+
+  constructor(){
+    
+  }
 }
