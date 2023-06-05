@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +18,10 @@ import { ComponentsModule } from './components/components.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

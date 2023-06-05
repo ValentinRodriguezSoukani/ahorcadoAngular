@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PalabraService } from 'src/app/providers/palabra.service';
 
 @Component({
   selector: 'app-ingresar-palabra',
@@ -10,5 +11,9 @@ export class IngresarPalabraComponent {
   title = 'ahorcadoAngular';
   arrCoincidencias = []; // esto es para corregir!
   palabraAdivinar = '';
+
+  constructor(private db: PalabraService){
+    console.log(this.db.getBD());
+  }
 
 }
