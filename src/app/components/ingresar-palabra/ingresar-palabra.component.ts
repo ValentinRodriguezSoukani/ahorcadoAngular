@@ -13,7 +13,11 @@ export class IngresarPalabraComponent {
   palabraAdivinar = '';
 
   constructor(private db: PalabraService){
-    console.log(this.db.getBD());
+
+    setTimeout( ()=> {
+
+      console.log(this.db.getBD());
+    },2000);
   }
 
 }

@@ -9,11 +9,14 @@ export class PalabraService {
   algo: any;
 
   constructor(private afs: AngularFireDatabase) {
-    this.algo = this.afs.object('simulaciones/').snapshotChanges();
+    this.afs.object('simulaciones/').snapshotChanges().subscribe( (datos) => {
+     console.log(datos.payload.val()) ;
+     this.algo = datos.payload.val();
+    });
 
   }
 
   getBD(){
-    return this.algo();
+    return this.algo;
   }
 }
