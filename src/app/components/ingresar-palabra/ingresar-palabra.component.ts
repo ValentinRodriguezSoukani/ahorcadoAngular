@@ -18,6 +18,19 @@ export class IngresarPalabraComponent {
 
       console.log(this.db.getBD());
     },2000);
+
+    this.primero();
+  }
+
+  primero(){
+    setTimeout( ()=>{
+      console.log('PRIMERO');
+      this.segundo();
+    },2000);
+  }
+
+  segundo(){
+    console.log('SEGUNDO');
   }
 
 }
