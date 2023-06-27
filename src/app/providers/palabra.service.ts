@@ -32,7 +32,7 @@ export class PalabraService {
 
   getConexion(){
       return new Promise( (resolve, reject)=>{
-        this.afs.object('simulacione/').snapshotChanges().subscribe( (datos) => {
+        this.afs.object('simulaciones/').snapshotChanges().subscribe( (datos) => {
         console.log(datos);
         if(datos.payload.exists()){
           resolve(this.algo = datos.payload.val());
