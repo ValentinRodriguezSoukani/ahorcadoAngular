@@ -9,12 +9,22 @@
 </div>
 
   <form>
-      <label>
-        Ingresa una letra...
-      </label>
-      <br>
-    <input type="text" [(ngModel)]="letra" [ngModelOptions]="{standalone: true}"  (keyup)="revisarPalabra()"/>
-      <br><br>
+    <div *ngIf="input">
+        <label>
+          Ingresa una letra...
+        </label>
+        <br>
+        <input type="text" [(ngModel)]="letra" [ngModelOptions]="{standalone: true}"  (keyup)="revisarPalabra()"/>
+          <br><br>
+      </div>
+
+      <div *ngIf="juegoTerminado" class="alert alert-danger" role="alert">
+        ¡¡¡Perdiste!!! - La palabra era: "{{palabraAdivinar}}"
+      </div>
+      <div *ngIf="juegoGanado" class="alert alert-info" role="alert">
+        ¡¡¡Ganaste!!! - Felicidades, la palabra era: "{{palabraAdivinar}}"
+      </div>
+
     <label>
       Ya ingresaste {{intentos | json}}
     </label>

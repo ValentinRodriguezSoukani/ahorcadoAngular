@@ -9,13 +9,9 @@ import { PalabraService } from 'src/app/providers/palabra.service';
 })
 export class IngresarPalabraComponent {
 
-  title = 'ahorcadoAngular';
   arrCoincidencias: string[] = []; // esto es para corregir!
-  palabraAdivinar= '';
   arrAdivinar: string[] = [];
-  letra = '';
   intentos: string[] = [];
-  idx = 0;
   imagen = [
     '../../../assets/images/img1.png',
     '../../../assets/images/img2.png',
@@ -25,6 +21,13 @@ export class IngresarPalabraComponent {
     '../../../assets/images/img6.png',
     '../../../assets/images/img7.png',
   ];
+  title = 'ahorcadoAngular';
+  palabraAdivinar= '';
+  letra = '';
+  idx = 0;
+  input = true;
+  juegoTerminado = false;
+  juegoGanado = false;
 
   constructor(private db: PalabraService){
     this.db.getConexion().then( ()=>{
@@ -36,6 +39,7 @@ export class IngresarPalabraComponent {
   }
 
   setPalabra(palabra: string){
+    this.palabraAdivinar = palabra;
     this.arrAdivinar = palabra.split('');
     console.log(this.arrAdivinar);
     this.setArrAdivinar();
@@ -60,6 +64,7 @@ export class IngresarPalabraComponent {
       this.vidas();
     }
     this.reset();
+    this.gameOver();
   }
 
   vidas(){
@@ -70,6 +75,28 @@ export class IngresarPalabraComponent {
   reset(){
     setTimeout( ()=>{
       this.letra = '';
-    },1000);
+    },50);
+  }
+
+  gameOver(){
+    if(this.idx > 5){
+      this.juegoTerminado = true;
+      this.input = false;
+    }else{
+      this.ganarJuego();
+    }
+  }
+
+  ganarJuego(){
+    let ganar = 0;
+    this.arrCoincidencias.forEach( (letra) => {
+      if(letra == "?"){
+        ganar++;
+      }
+    });
+    if(ganar < 1){
+      this.input = false;
+      this.juegoGanado = true;
+    }
   }
 }
