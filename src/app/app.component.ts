@@ -10,7 +10,20 @@ export class AppComponent {
   arrCoincidencias = []; // esto es para corregir!
   palabraAdivinar = '';
 
+  componenteAgregar = false;
+  componenteJugar = true;
+
   constructor(){
-    
+
+  }
+
+  agregarPalabras(){
+    this.componenteAgregar = true;
+    this.componenteJugar = false;
+  }
+
+  regresarJuego(){
+    this.componenteAgregar = false;
+    this.componenteJugar = true;
   }
 }

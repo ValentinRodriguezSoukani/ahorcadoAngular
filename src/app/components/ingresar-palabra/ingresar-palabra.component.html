@@ -1,15 +1,23 @@
-<h2>¡¡¡Comencemos!!!</h2>
+<h3>Adivina la palabra!!</h3>
 
-<br>
-<br>
+<div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
+  <img [src]="imagen[idx]" class="card-img-top" height="200px" >
+  <div class="card-header">Te quedan 6 intentos...</div>
+  <div class="card-body">
+    <h5 class="card-title">{{arrCoincidencias | json}}</h5>
 
+  </div>
+</div>
 
   <form>
       <label>
-        Ingresa una palabra
-        {{palabraAdivinar}}
+        Ingresa una letra...
       </label>
       <br>
-    <input type="text" [(ngModel)]="palabraAdivinar" [ngModelOptions]="{standalone: true}"  />
-  </form>         
+    <input type="text" [(ngModel)]="letra" [ngModelOptions]="{standalone: true}"  (keyup)="revisarPalabra()"/>
+      <br><br>
+    <label>
+      Ya ingresaste {{intentos | json}}
+    </label>
+  </form>
 
