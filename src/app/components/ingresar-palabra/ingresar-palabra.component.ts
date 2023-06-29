@@ -48,13 +48,23 @@ export class IngresarPalabraComponent {
   }
 
   revisarPalabra(){
-    console.log(this.letra);
+    let aciertos = 0;
     this.intentos.push(this.letra);
+    this.arrAdivinar.forEach((letra, index: number)=>{
+      if(this.letra === letra){
+        this.arrCoincidencias[index] = letra;
+        aciertos++;
+      }
+    });
+    if(aciertos == 0){
+      this.vidas();
+    }
     this.reset();
   }
 
   vidas(){
     this.idx ++;
+    console.log(this.idx);
   }
 
   reset(){
