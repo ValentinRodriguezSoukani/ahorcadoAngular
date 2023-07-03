@@ -1,32 +1,32 @@
-<h3>Adivina la palabra!!</h3>
-
-<div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
-  <img [src]="imagen[idx]" class="card-img-top" height="200px" >
-  <div class="card-body">
-    <h5 class="card-title">{{arrCoincidencias | json}}</h5>
+<h3 class="subtitulo"> Adivina o moriras!!!</h3> <!-- Título de la página -->
+<div class="card text-white bg-secondary mb-3" style="max-width: 35rem;"> <!-- Div para una tarjeta con fondo de color secundario -->
+  <img [src]="imagen[idx]" class="card-img-top" height="200px" > <!-- Imagen de la tarjeta, con la ruta de la imagen dinámicamente vinculada -->
+  <div class="card-body"> <!-- Cuerpo de la tarjeta -->
+    <h5 class="card-title">{{arrCoincidencias | json}}</h5> <!-- Título de la tarjeta con el contenido de arrCoincidencias mostrado en formato JSON -->
 
   </div>
 </div>
 
-  <form>
-    <div *ngIf="input">
-        <label>
-          Ingresa una letra...
-        </label>
-        <br>
-        <input type="text" [(ngModel)]="letra" [ngModelOptions]="{standalone: true}"  (keyup)="revisarPalabra()"/>
-          <br><br>
-      </div>
-
-      <div *ngIf="juegoTerminado" class="alert alert-danger" role="alert">
-        ¡¡¡Perdiste!!! - La palabra era: "{{palabraAdivinar}}"
-      </div>
-      <div *ngIf="juegoGanado" class="alert alert-info" role="alert">
-        ¡¡¡Ganaste!!! - Felicidades, la palabra era: "{{palabraAdivinar}}"
-      </div>
-
-    <label>
-      Ya ingresaste {{intentos | json}}
+<form> <!-- Formulario -->
+  <div class="ingresoletras"> <!-- Div para ingresar letras -->
+    <div *ngIf="input"> <!-- Si la variable input es verdadera -->
+      <label> <!-- Etiqueta para un campo de texto -->
+        Ingresa una letra...
+      </label>
+      <br>
+      <input type="text" [(ngModel)]="letra" [ngModelOptions]="{standalone: true}" (keyup)="revisarPalabra()" /> <!-- Campo de texto para ingresar una letra, con enlace bidireccional [(ngModel)] a la variable letra, y un evento keyup para llamar a la función revisarPalabra() -->
+      <br><br>
+    </div>
+    
+    <div *ngIf="juegoTerminado" class="alert alert-danger" role="alert"> <!-- Si la variable juegoTerminado es verdadera, muestra una alerta de peligro con un mensaje -->
+      Moriste, la palabra a adivinar era: "{{palabraAdivinar}}"
+    </div>
+    <div *ngIf="juegoGanado" class="alert alert-info" role="alert"> <!-- Si la variable juegoGanado es verdadera, muestra una alerta informativa con un mensaje -->
+      Genial, no moriste... La palabra era: "{{palabraAdivinar}}"
+    </div>
+    
+    <label> <!-- Etiqueta para mostrar las letras utilizadas -->
+      Has usado estas letras: {{intentos | json}}
     </label>
-  </form>
-
+  </div>
+</form>

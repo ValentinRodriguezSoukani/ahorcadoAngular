@@ -2,26 +2,38 @@
 
 <form>
   <label>
-    Ingresa una nueva palabra
+    Ingresa una palabra nueva
   </label>
   <br>
-<input type="text" [(ngModel)]="palabraNueva" [ngModelOptions]="{standalone: true}"  />
-<br><br>
-<button (click)="AgregarPalabra()" type="button" class="btn btn-primary me-2" > Agregar</button>
+  <!-- Se define un campo de texto para ingresar una nueva palabra -->
+  <input type="text" [(ngModel)]="palabraNueva" [ngModelOptions]="{standalone: true}"  />
+  <br><br>
+  <!-- Al hacer clic en el botón, se llamará a la función AgregarPalabra() -->
+  <button (click)="AgregarPalabra()" type="button" class="btn btn-primary me-2" > Agregar palabra a la Base de Datos</button>
 </form>
 
 <br><br>
+<!-- Se muestra un mensaje de éxito si la palabra se agregó correctamente -->
 <div *ngIf="alertOk" class="alert alert-success" role="alert">
-  Palabra Agregada!
+  Palabra agregada con éxito!
 </div>
 
+<!-- Se muestra un mensaje de error si no se pudo agregar la palabra -->
 <div *ngIf="alertErr" class="alert alert-danger" role="alert">
-  Ups!.. Ocurrió un error!
+  No se pudo agregar la palabra!
 </div>
 
 <label>
-  Palabras Disponibles en BD
+  Palabras en la Base de Datos:
   <p>
+    <!-- Se muestra el contenido del arreglo arrPalabras en formato JSON -->
     {{arrPalabras | json}}
   </p>
 </label>
+Estos comentarios describen el propósito general de cada línea de código dentro del fragmento HTML.
+
+
+
+
+
+

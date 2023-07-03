@@ -1,28 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos para el elemento html y body */
 html, body{
-    display: table;
-    color: white !important;
-    width:100vw;
-    height:100vh;
-}
-.fondoGrape{
-     background-color: #D7EAED !important;;
+    display: table; /* Muestra los elementos como una tabla */
+    color: white !important; /* Color de texto blanco (importante, anula otros estilos) */
+    width:100vw; /* Ancho del elemento al 100% del ancho de la ventana */
+    height:100vh; /* Altura del elemento al 100% de la altura de la ventana */
 }
 
+/* Estilos para la clase "fondo" */
+.fondo{
+    background-image:linear-gradient(to bottom, black, crimson); /* Imagen de fondo con un degradado lineal de negro a carmesí */
+}
+
+/* Estilos para la clase "tituloJuego" */
 .tituloJuego{
-    text-align: center;
-    margin: 5px 0px;
-    color: #52465E;
-    font-family: fantasy;
+    text-align: center; /* Alineación del texto al centro */
+    font-size: 40px; /* Tamaño de fuente de 40 píxeles */
+    color: crimson; /* Color de texto carmesí */
+    font-family: 'Verdana'; /* Fuente de texto Verdana */
 }
 
+/* Estilos para la clase "subtitulo" */
+.subtitulo{
+    text-align:center ; /* Alineación del texto al centro */
+    font-size: 20px; /* Tamaño de fuente de 20 píxeles */
+    color: white; /* Color de texto blanco */
+    font-family: Verdana; /* Fuente de texto Verdana */
+}
+
+/* Estilos para el elemento con la clase "container" */
 .container{
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 800px !important;
-    background-color: #52465E;
-    border-radius: 30px;
+    display: flex; /* Muestra el elemento como un contenedor flexible */
+    justify-content: center; /* Alinea el contenido al centro horizontalmente */
+    vertical-align: middle; /* Alinea el contenido verticalmente al centro */
+    margin: 20px auto; /* Márgenes de 20 píxeles en la parte superior e inferior, y se ajusta automáticamente a los lados */
+    padding: 20px; /* Relleno de 20 píxeles alrededor del contenido del elemento */
+    max-width: 800px !important; /* Ancho máximo del elemento de 800 píxeles (importante, anula otros estilos) */
+}
+
+/* Estilos para la clase "ingresoletras" */
+.ingresoletras{
+    display: flex; /* Muestra el elemento como un contenedor flexible */
+    flex-direction: column; /* Dirección del flujo de los elementos en forma de columna */
+    align-items: center; /* Alinea los elementos al centro horizontalmente */
+    justify-content: center; /* Alinea los elementos al centro verticalmente */
 }
